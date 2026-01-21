@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Comprar VIP Ouro</title>
+  <style>
+    body {
+      background: #0e0e0e;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .checkout {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+      width: 360px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      color: gold;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border-radius: 5px;
+      border: none;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      background: gold;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e6c200;
+    }
+
+    .pix {
+      display: none;
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    .pix img {
+      margin-top: 10px;
+      width: 220px;
+    }
+
+    .footer {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #aaa;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="checkout">
+  <h1>VIP OURO</h1>
+  <p>Servidor DayZ • RedZoneZ</p>
+
+  <input 
+    type="text" 
+    id="steamid" 
+    placeholder="Digite seu SteamID 64"
+  >
+
+  <button onclick="gerarPix()">Pagar com PIX</button>
+
+  <div class="pix" id="pix">
+    <p>Escaneie o QR Code para pagar</p>
+
+    <!-- QR CODE PIX DE TESTE -->
+    <img 
+      src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=PIX_TESTE_VIP_OURO_35_REAIS"
+      alt="QR Code PIX"
+    >
+
+    <div class="footer">
+      Após o pagamento, o VIP será ativado automaticamente.
+    </div>
+  </div>
+</div>
+
+<script>
+  function gerarPix() {
+    const steamid = document.getElementById("steamid").value;
+
+    if (!steamid || !/^[0-9]{17}$/.test(steamid)) {
+      alert("SteamID inválido. Use o SteamID 64.");
+      return;
+    }
+
+    document.getElementById("pix").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
